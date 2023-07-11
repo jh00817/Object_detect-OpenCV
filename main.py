@@ -11,5 +11,5 @@ while True :
     print (name)
     record(name,5)
 
-    detect('output_'+str(name)+'.avi',4)
+    print(detect('output_'+str(name)+'.avi',4))
 
