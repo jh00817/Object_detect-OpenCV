@@ -75,3 +75,5 @@ def detect(source, frame1) :
             break
     cap.release()
     cv2.destroyAllWindows()
+
+detect(0,4)
