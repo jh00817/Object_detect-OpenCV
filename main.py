@@ -1,10 +1,15 @@
 from object_detect import detect
 from record import record
 import time
+from datetime import datetime
 
-name = "test"
+while True :
+    now = datetime.now()
+    current_time = now.strftime("%H_%M_%S")
 
-record(name)
+    name = "test" +str( current_time )
+    print (name)
+    record(name,5)
 
-detect('output_'+str(name)+'.avi',4)
-#detect(0,4)
+    detect('output_'+str(name)+'.avi',4)
+

@@ -9,6 +9,7 @@ def detect(source, frame1) :
     cap = cv2.VideoCapture(camera)
     # get the video frame height and width
     frame_width = int(cap.get(3))
+    """     frame_width = int(cap.get(3))
     frame_height = int(cap.get(4))
     save_name = f"outputs"
     # define codec and create VideoWriter object
@@ -16,7 +17,7 @@ def detect(source, frame1) :
         save_name,
         cv2.VideoWriter_fourcc(*'mp4v'), 10, 
         (frame_width, frame_height)
-    )
+    ) """
     
     #start = time.time()
 
@@ -69,18 +70,27 @@ def detect(source, frame1) :
                         continue
                     # get the xmin, ymin, width, and height coordinates from the contours
                     (x, y, w, h) = cv2.boundingRect(contour)
+                    
                     # draw the bounding boxes
                     cv2.rectangle(orig_frame, (x, y), (x+w, y+h), (0, 255, 0), 2)
+                    
+                    if frame_width/3 > x+w :
+                        print("left")
+                    elif 2*frame_width/3 > x+w:
+                        print("center")
+                    else :
+                        print("right")
             
-                cv2.imshow('Detected Objects', orig_frame)
-                out.write(orig_frame)
+                # cv2.imshow('Detected Objects', orig_frame)
+                # out.write(orig_frame)
                 if cv2.waitKey(100) & 0xFF == ord('q'):
                     break
+            
+                return "detected"
         
         else:
             break
     cap.release()
     cv2.destroyAllWindows()
 
-
-detect(0,4)
+    return "normal"
