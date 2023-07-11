@@ -4,8 +4,10 @@ import time
 from datetime import datetime
 
 def function_detect() :
+    count = 0
+    
     while count < 4 :
-        count = 0
+        
         now = datetime.now()
         current_time = now.strftime("%H_%M_%S")
 
@@ -19,3 +21,7 @@ def function_detect() :
             count = count + 1
         else :
             count = 0
+
+if __name__ == "__main__" :
+
+    function_detect()

@@ -94,3 +94,7 @@ def detect(source, frame1) :
     cv2.destroyAllWindows()
 
     return "normal"
+
+
+if __name__ =="__main__" :
+    detect(0,4)
