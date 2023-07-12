@@ -31,7 +31,9 @@ def detect(source, frame1) :
     frame_count = 0
     consecutive_frame = frame1
 
-    left,right,center = 0
+    left = 0
+    right = 0
+    center = 0
 
     while (cap.isOpened()):
 
