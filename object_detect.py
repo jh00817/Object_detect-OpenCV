@@ -31,6 +31,7 @@ def detect(source, frame1) :
     frame_count = 0
     consecutive_frame = frame1
 
+    left,right,center = 0
 
     while (cap.isOpened()):
 
@@ -76,25 +77,37 @@ def detect(source, frame1) :
                     
                     if frame_width/3 > x+w :
                         print("left")
+                        left = left + 1
                     elif 2*frame_width/3 > x+w:
                         print("center")
+                        center = center + 1
                     else :
                         print("right")
+                        right = right + 1
+
                 if __name__ == "__main__" :
                     cv2.imshow('Detected Objects', orig_frame)
                     # out.write(orig_frame)
+
                 if cv2.waitKey(100) & 0xFF == ord('q'):
                     break
-            
-                if __name__ =="__main__" :
-                    return "detected"
+
+                
         
         else:
             break
     cap.release()
     cv2.destroyAllWindows()
 
-    return "normal"
+
+    if max(left,center,right) == left :
+        return "left"
+    elif max(left,center,right) == center :
+        return "center"
+    elif max(left,center,right) == right :
+        return "right"
+    else :
+        return "normal"
 
 
 if __name__ =="__main__" :
