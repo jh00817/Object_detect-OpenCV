@@ -80,13 +80,14 @@ def detect(source, frame1) :
                         print("center")
                     else :
                         print("right")
-            
-                # cv2.imshow('Detected Objects', orig_frame)
-                # out.write(orig_frame)
+                if __name__ == "__main__" :
+                    cv2.imshow('Detected Objects', orig_frame)
+                    # out.write(orig_frame)
                 if cv2.waitKey(100) & 0xFF == ord('q'):
                     break
             
-                return "detected"
+                if __name__ =="__main__" :
+                    return "detected"
         
         else:
             break

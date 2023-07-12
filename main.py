@@ -21,6 +21,7 @@ def function_detect() :
             count = count + 1
         else :
             count = 0
+ 
 
 if __name__ == "__main__" :
 
