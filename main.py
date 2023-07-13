@@ -6,7 +6,7 @@ from datetime import datetime
 def function_detect() :
 
     now = datetime.now()
-    current_time = now.strftime("%H_%M_%S")
+    current_time = now.strftime("%Y_%M_%D.%H_%M_%S")
 
     name = "test" +str( current_time )
     print (name)
