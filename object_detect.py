@@ -78,13 +78,13 @@ def detect(source, frame1) :
                     cv2.rectangle(orig_frame, (x, y), (x+w, y+h), (0, 255, 0), 2)
                     
                     if frame_width/3 > x+w :
-                        print("left")
+                       
                         left = left + 1
                     elif 2*frame_width/3 > x+w:
-                        print("center")
+                        
                         center = center + 1
                     else :
-                        print("right")
+                        
                         right = right + 1
 
                 if __name__ == "__main__" :
@@ -103,14 +103,23 @@ def detect(source, frame1) :
 
 
     if max(left,center,right) == left :
+        
+        print("left") 
         return "left"
+        
     elif max(left,center,right) == center :
+        
+        print("center")
         return "center"
     elif max(left,center,right) == right :
+        
+        print("right")
         return "right"
     else :
+        print("normal")
         return "normal"
 
 
-if __name__ =="__main__" :
+
+if __name__ == "__main__" :
     detect(0,4)
